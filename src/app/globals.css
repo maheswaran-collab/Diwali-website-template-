@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Manrope:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Manrope', sans-serif;
+  --font-ui: 'Manrope', sans-serif;
+}
+
+body {
+  background-color: #FAFAFA;
+  color: #171717;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  selection-background-color: #171717;
+  selection-color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F3F8;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #171717, #D4AF37);
+  border-radius: 5px;
+}
+
+/* Glowing text and borders */
+.text-gold-glow {
+  color: #D4AF37;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+}
+
+.text-purple-glow,
+.text-black-glow {
+  color: #171717;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.text-crimson-glow {
+  color: #D4AF37;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #B8860B 0%, #D4AF37 55%, #966F0D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.glass-panel-gold {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+}
+
+/* Diya Flame Effect */
+.flame {
+  width: 18px;
+  height: 28px;
+  background: radial-gradient(ellipse at bottom, #ffffff 0%, #ffe066 25%, #ff9100 60%, #ff4500 100%);
+  border-radius: 50% 50% 20% 20% / 80% 80% 30% 30%;
+  box-shadow: 0 0 20px #ff9100, 0 -8px 25px #ff4500, 0 -15px 35px #ffd700;
+  animation: flicker 1.5s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+.flame-large {
+  width: 28px;
+  height: 44px;
+  box-shadow: 0 0 30px #ff9100, 0 -12px 35px #ff4500, 0 -22px 50px #ffd700;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-1deg); }
+  25% { transform: scale(1.05) rotate(1.5deg); }
+  50% { transform: scale(0.96) rotate(-1deg); }
+  75% { transform: scale(1.08) rotate(1deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Background floating sparkles */
+.sparkle-bg {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #ffd700, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #ff4500, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #f59e0b, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Animated Gold Shimmer */
+.gold-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #fff7c2 20%,
+    #ffd700 40%,
+    #ffffff 60%,
+    #ffd700 80%,
+    #f59e0b 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 4s linear infinite;
+}
+
+@keyframes goldShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Floating Embers animation */
+@keyframes floatEmber {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.85;
+  }
+  70% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-130px) translateX(30px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-float-ember {
+  animation: floatEmber var(--duration, 6s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Pulse Glow Aura */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.25);
+    opacity: 0.65;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Gentle Float for Icons */
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-soft {
+  animation: floatSoft 4s ease-in-out infinite;
+}
+
+/* Flying Rocket Crackers Animations */
+@keyframes rocketLaunchUpRight {
+  0% {
+    transform: translate3d(-200px, 80vh, 0) rotate(25deg) scale(0.6);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(calc(100vw + 200px), -90vh, 0) rotate(25deg) scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes rocketLaunchUpLeft {
+  0% {
+    transform: translate3d(calc(100vw + 200px), 85vh, 0) rotate(-35deg) scale(0.6);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(-250px, -90vh, 0) rotate(-35deg) scale(1.15);
+    opacity: 0;
+  }
+}
+
+.animate-rocket-fly-1 {
+  animation: rocketLaunchUpRight 6s cubic-bezier(0.15, 0.85, 0.35, 1) infinite;
+}
+
+.animate-rocket-fly-2 {
+  animation: rocketLaunchUpLeft 7.5s cubic-bezier(0.15, 0.85, 0.35, 1) infinite;
+  animation-delay: 3s;
+}
+
+/* Rocket Exhaust Spark Stream */
+@keyframes exhaustSparkle {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(45px) scale(0.2);
+    opacity: 0;
+  }
+}
+
+.animate-exhaust-sparkle {
+  animation: exhaustSparkle 0.4s ease-out infinite alternate;
+}
+
+/* Rich Luxury Gold Text Gradient for Main Headings */
+.luxury-gold-text,
+.gold-gradient-text {
+  background: linear-gradient(135deg, #B8860B 0%, #D4AF37 45%, #966F0D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.luxury-purple-text {
+  background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #966F0D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Primary Button Gradient: Deep Purple -> Royal Purple */
+.btn-gold-gradient,
+.btn-purple-gradient {
+  background: linear-gradient(135deg, #6C3BAA 0%, #5B2A86 100%);
+  color: #FFFFFF;
+}
+
+/* Depth parallax transitions */
+.parallax-layer {
+  will-change: transform;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Premium Diwali Glow Text Pulse Animation for Gold Headings */
+.diwali-glow-pulse {
+  text-shadow: 0 0 14px rgba(212, 175, 55, 0.35), 0 0 25px rgba(184, 134, 11, 0.25);
+  animation: diwaliGlowPulse 3.5s ease-in-out infinite;
+}
+
+@keyframes diwaliGlowPulse {
+  0%, 100% {
+    text-shadow: 0 0 14px rgba(212, 175, 55, 0.35), 0 0 25px rgba(184, 134, 11, 0.25);
+    filter: brightness(1);
+  }
+  50% {
+    text-shadow: 0 0 22px rgba(212, 175, 55, 0.6), 0 0 35px rgba(184, 134, 11, 0.4);
+    filter: brightness(1.08);
+  }
+}
+
+/* Accessibility & Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .diwali-glow-pulse {
+    animation: none;
+    text-shadow: 0 0 16px rgba(244, 213, 138, 0.6), 0 0 30px rgba(217, 154, 43, 0.4);
+  }
+  .animate-float-ember,
+  .animate-pulse-glow,
+  .animate-rocket-fly-1,
+  .animate-rocket-fly-2,
+  .gold-shimmer-text,
+  .animate-marquee-continuous,
+  .animate-product-subtle-float {
+    animation: none !important;
+  }
+}
+
+/* Premium Product Marquee Continuous Scroll (RIGHT -> LEFT) */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-continuous {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 60s linear infinite;
+  will-change: transform;
+}
+
+/* Subtle Floating/Shake Animation for Individual Products */
+@keyframes productSubtleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1deg);
+  }
+}
+
+.animate-product-subtle-float {
+  animation: productSubtleFloat 4.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Smooth Fade Gradient Edge Mask for Marquee */
+.marquee-edge-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+}
+
+/* Text Marquee Fast Continuous Banner */
+@keyframes marqueeBannerScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-banner {
+  display: flex;
+  width: max-content;
+  animation: marqueeBannerScroll 75s linear infinite;
+  will-change: transform;
+}
+
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 10s linear infinite;
+}
+
+/* Site-Wide Parallax Rocket Floating Keyframes */
+@keyframes rocketFloat1 {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) translateX(4px) rotate(2deg);
+  }
+}
+
+@keyframes rocketFloat2 {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) translateX(-6px) rotate(-3deg);
+  }
+}
+
+@keyframes rocketFloat3 {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) translateX(5px) rotate(2.5deg);
+  }
+}
+
+@keyframes rocketFloat4 {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) translateX(-3px) rotate(-1.5deg);
+  }
+}
+
+.animate-rocket-float-1 {
+  animation: rocketFloat1 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-rocket-float-2 {
+  animation: rocketFloat2 6.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-rocket-float-3 {
+  animation: rocketFloat3 6.0s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-rocket-float-4 {
+  animation: rocketFloat4 7.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Mathematically Straight Rocket Flight Trajectories (Point A -> Point B) */
+@keyframes flyStraight1 {
+  0% {
+    transform: translate3d(-10vw, 115vh, 0) rotate(40deg);
+    opacity: 0;
+  }
+  2% { opacity: 1; }
+  92% { opacity: 1; }
+  100% {
+    transform: translate3d(110vw, -35vh, 0) rotate(40deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flyStraight2 {
+  0% {
+    transform: translate3d(110vw, 115vh, 0) rotate(-40deg);
+    opacity: 0;
+  }
+  2% { opacity: 1; }
+  92% { opacity: 1; }
+  100% {
+    transform: translate3d(-10vw, -35vh, 0) rotate(-40deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flyStraight3 {
+  0% {
+    transform: translate3d(15vw, 115vh, 0) rotate(25deg);
+    opacity: 0;
+  }
+  2% { opacity: 1; }
+  92% { opacity: 1; }
+  100% {
+    transform: translate3d(90vw, -35vh, 0) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flyStraight4 {
+  0% {
+    transform: translate3d(85vw, 115vh, 0) rotate(-20deg);
+    opacity: 0;
+  }
+  2% { opacity: 1; }
+  92% { opacity: 1; }
+  100% {
+    transform: translate3d(25vw, -35vh, 0) rotate(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rocketSparksPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.4);
+  }
+}
+
+.animate-rocket-sparks {
+  animation: rocketSparksPulse 0.25s ease-in-out infinite alternate;
+}
+
+.animate-sky-fly-1 {
+  animation: flyStraight1 7s linear infinite;
+  will-change: transform;
+}
+
+.animate-sky-fly-2 {
+  animation: flyStraight2 8s linear infinite;
+  animation-delay: 2.5s;
+  will-change: transform;
+}
+
+.animate-sky-fly-3 {
+  animation: flyStraight3 6.5s linear infinite;
+  animation-delay: 4.5s;
+  will-change: transform;
+}
+
+.animate-sky-fly-4 {
+  animation: flyStraight4 7.5s linear infinite;
+  animation-delay: 1.2s;
+  will-change: transform;
+}
+
+
+
+
+
+
+
+
+
